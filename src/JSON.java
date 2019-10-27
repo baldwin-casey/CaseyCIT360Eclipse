@@ -1,17 +1,27 @@
-import org.json.simple.JSONObject;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class JSON {
-   public static List deck = new ArrayList<Object>();
-   public static List hand1 = new ArrayList<Object>();
-   public static List hand2 = new ArrayList<Object>();
-   public static List hand3 = new ArrayList<Object>();
-   public static List hand4 = new ArrayList<Object>();
-   public static List hand5 = new ArrayList<Object>();
-   public static List hand6 = new ArrayList<Object>();
+	public static int count = 0;
+	public static int handcount = 0;
+	   public static List deck = new ArrayList<Object>();
+	   public static List hand1 = new ArrayList<Object>();
+	   public static List hand2 = new ArrayList<Object>();
+	   public static List hand3 = new ArrayList<Object>();
+	   public static List hand4 = new ArrayList<Object>();
+	public static void JSON() {
    builddeck();
    drawcards();
+   savejson();
+   System.exit(0);
+	}
 	
-public static void deck {
+public static void builddeck() {
  deck.add(count, "2 of Hearts");
     deck.add(count++, "3 of Hearts");
     deck.add(count++, "4 of Hearts");
@@ -66,78 +76,95 @@ public static void deck {
     deck.add(count++, "Ace of Clubs");
     System.out.println("The Unshuffled Deck");
     System.out.println(deck);
+    Collections.shuffle(deck);
 }
 
 public static void drawcards() {
 	//Draw the First card, remove the card from the deck, decrease the size of the deck, add card to hand
     Random firstrandom = new Random();
 	int f1 = firstrandom.nextInt(count);
-	String result = deck.get(f).toString();
-    hand1.add(handcount, result);
-	deck.remove(f);
+	String result = deck.get(f1).toString();
+    hand1.add(0, result);
+	deck.remove(f1);
 	count--;
 	
 	//Draw the Second Card, remove the card from the deck, decrease the size of the deck, add card to hand
 	Random secondrandom = new Random();
 	int s1 = secondrandom.nextInt(count);
-	result = deck.get(s).toString();
-    hand1.add(handcount++, result);
-	deck.remove(s);
+	result = deck.get(s1).toString();
+    hand1.add(1, result);
+	deck.remove(s1);
 	count--;
 	
 	Random thirdrandom = new Random();
 	int f2 = thirdrandom.nextInt(count);
-	String result = deck.get(f).toString();
-    hand2.add(handcount, result);
-	deck.remove(f);
+	result = deck.get(f2).toString();
+    hand2.add(0, result);
+	deck.remove(f2);
 	count--;
 	
 	//Draw the Second Card, remove the card from the deck, decrease the size of the deck, add card to hand
 	Random fourthrandom = new Random();
 	int s2 = fourthrandom.nextInt(count);
-	result = deck.get(s).toString();
-    hand2.add(handcount++, result);
-	deck.remove(s);
+	result = deck.get(s2).toString();
+    hand2.add(1, result);
+	deck.remove(s2);
 	count--;
 	
 	    Random fifthrandom = new Random();
 	int f3 = fifthrandom.nextInt(count);
-	String result = deck.get(f).toString();
-    hand3.add(handcount, result);
-	deck.remove(f);
+	result = deck.get(f3).toString();
+    hand3.add(0, result);
+	deck.remove(f3);
 	count--;
 	
 	//Draw the Second Card, remove the card from the deck, decrease the size of the deck, add card to hand
 	Random sixthrandom = new Random();
 	int s3 = sixthrandom.nextInt(count);
-	result = deck.get(s).toString();
-    hand3.add(handcount++, result);
-	deck.remove(s);
+	result = deck.get(s3).toString();
+    hand3.add(1, result);
+	deck.remove(s3);
 	count--;
 	
 	    Random seventhrandom = new Random();
-	int f3 = seventhrandom.nextInt(count);
-	String result = deck.get(f).toString();
-    hand4.add(handcount, result);
-	deck.remove(f);
+	int f4 = seventhrandom.nextInt(count);
+	result = deck.get(f3).toString();
+    hand4.add(0, result);
+	deck.remove(f4);
 	count--;
 	
 	//Draw the Second Card, remove the card from the deck, decrease the size of the deck, add card to hand
-	Random eigthrandom = new Random();
-	int s3 = eighthrandom.nextInt(count);
-	result = deck.get(s).toString();
-    hand4.add(handcount++, result);
-	deck.remove(s);
+	Random eighthrandom = new Random();
+	int s4 = eighthrandom.nextInt(count);
+	result = deck.get(s3).toString();
+    hand4.add(1, result);
+	deck.remove(s4);
 	count--;
 }
 
  public static void savejson() {
  JSONObject deckjson = new JSONObject();
- deckjson.put(deck.stringify);
- System.out.Println(deckjson.stringify);
+ JSONObject hand1json = new JSONObject();
+ JSONObject hand2json = new JSONObject();
+ JSONObject hand3json = new JSONObject();
+ JSONObject hand4json = new JSONObject();
+ try {
+	deckjson.put("Deck", deck);
+	//For some reason, I can put 3 of the hands into the JSON, but not the fourth. Not sure why.
+	hand1json.append("Hand 1", hand1);
+	hand2json.append("Hand 2", hand2);
+	hand3json.append("Hand 3", hand3);
+	hand4json.append("Hand 4", hand4);
+} catch (JSONException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+ System.out.println(deckjson.toString());
+ System.out.println(hand1json.toString());
+ System.out.println(hand2json.toString());
+ System.out.println(hand3json.toString());
+ System.out.println(hand4json.toString());
+
  
- JSONObject deckjson = new JSONObject();
- hand1json.put(hand1.stringify);
- System.out.Println(hand1json.stringify);
  }
 }

@@ -21,7 +21,7 @@ public class httpconnection {
       public static void section() throws Exception{
            //These lines specify what url to go to
     System.out.println("HTTP!\n");
-    //
+    //This code was used to go around my proxy at work. Not really needed at this time.
    /* System.out.println("Are you using a proxy?(Y/N)\n");
     Scanner in = new Scanner(System.in);
     String a = in.next();
@@ -39,8 +39,9 @@ public class httpconnection {
             System.out.println("Please try again\n");
     }
 */
-    String url = "http://www.hamqsl.com/solarxml.php";
-     String filename = "test.xml";
+    //EDIT ME TO CHANGE THE WEBPAGE!
+    String url = "https://www.google.com/teapot";
+     String filename = "page.html";
     //try is just in case there is a problem
     try {
         //create the object and set the timeout
@@ -49,20 +50,27 @@ public class httpconnection {
     //open the connection!
     
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+    con.setConnectTimeout(5000);
     //con.setRequestProperty("http.agent", "");
-   // con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+   con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
    //String cookie = con.getHeaderField( "Set-Cookie").split(";")[0];
-   con.setRequestMethod("POST");
-    con.setRequestProperty("Accept", "application/xml");
-    con.setRequestProperty("Content-Type", "application/xml");
+   //con.setRequestMethod("GET");
+   //con.setRequestProperty("user-agent",con.getHeader("user-agent"));
+    //con.setRequestProperty("Accept", "application/xml");
+    //con.setRequestProperty("Content-Type", "application/xml");
     //con.setRequestProperty("Cookie", cookie );
     con.connect();
+    System.out.println("Attempting to connect.");
 //whats the response code?
   int status = con.getResponseCode();
-  if (status == con.HTTP_OK) {
-      //This is because I have a proxy at work, and this is to mitigate that
+  if (status == 200) {
     System.out.println("Server returned response code " + status);
-
+    //This section here was found after much searching on the internet. It creates a new reader which reads the webpage then directs that to a writer which writes the file.
+    //While there is still lines found in the webpage, it will keep writing.
+    //This will not copy css unless it is inline css. Javascript may also be absent.
+    String disposition = con.getHeaderField("Content-Disposition");
+    String contentType = con.getContentType();
+    int contentLength = con.getContentLength();
         BufferedReader br = new BufferedReader(new InputStreamReader(obj.openStream()));
         BufferedWriter writer =  
               new BufferedWriter(new FileWriter(filename));
@@ -72,23 +80,36 @@ public class httpconnection {
             } 
         br.close();
         writer.close();
-        readxml();
-        System.out.println("Done!");
+        //readxml();
+        System.out.println("Done! Saved as file named page.html.");
   }       
-
+  else if (status == 404) {
+	  System.out.println(" :-/ " + status);
+  }
+  else if (status == 408) {
+	  System.out.println(" Timed out error: " + status);
+  }
+  //This is for those webservers that return an error 418. Just in case.
+  else if (status == 418) {
+	  System.out.println("Teapot error: " + status + ", I'm a teapot.");
+	  System.out.printf("             ;,'\r\n" + 
+	  		"     _o_    ;:;'\r\n" + 
+	  		" ,-.'---`.__ ;\r\n" + 
+	  		"((j`=====',-'\r\n" + 
+	  		" `-\\     /\r\n" + 
+	  		"    `-=-'  ");
+  }
   else {
-      System.out.println("Im broken :-/ " + status);
+	  System.out.println("We were not expecting this!: " + status);
   }
     }
     catch (MalformedURLException e) {
         System.out.println("This url is bad! " + e.getMessage());
     }
-    catch (IOException e) {
-         System.out.println("Im broken :-/ " + e.getMessage());
-    }
+    System.exit(0);
     }
 
-
+/* This code was to be used with a different website, but I was not able to get past a 403 error. I am leaving this here in case I get a breakthourgh, as this code below does work.
 public static void readxml() {
 File xml = new File("test.xml");
 try{
@@ -115,9 +136,5 @@ catch (Exception e){
     System.out.println("Parse is broken :-/" + e.getMessage());
 }
 }
-
-public static void testxml() {
-    //The craeter of this amazing forecast tool has asked that this only update once per hour at most. This will test if the loaded file is newer than 24 hours
-    
-}
+*/
 }

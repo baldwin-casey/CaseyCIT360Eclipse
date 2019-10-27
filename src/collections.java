@@ -252,12 +252,12 @@ public static void gamemenu() throws InterruptedException {
 	}
 	else {
 	System.out.println("------------------------------------");
-	System.out.println("You drew: ");
+	System.out.println("Your hand: ");
 	System.out.println(hand.toString());
 	System.out.println("For a total of: " + playerhandresult);
 	System.out.println("------------------------------------");
 	Thread.sleep(3000);
-	System.out.println("The dealer drew: ");
+	System.out.println("The dealers hand: ");
 	System.out.println(dealerhand.toString());
 	System.out.println("For a total of: " + dealerresult);
 	System.out.println("------------------------------------");
@@ -391,23 +391,29 @@ public static void gameresult() throws InterruptedException {
 	//Just in case both players go over 21
 	if (dealerresult > 21 && playerhandresult > 21) {
 		System.out.println("It's a tie!");
-		System.exit(0);
+		trees();
 	}
 	//If the dealer gets more than 21!
 	else if (dealerresult > 21) {
 		System.out.println("You win!");
-		System.exit(0);
+		trees();
 	}
 		
 	//The losing results
 	else if (dealerresult >= playerhandresult || playerhandresult > 21) {
 	System.out.println("You lose!");
-	System.exit(0);
+	trees();
 	}
 	
 	else {
 		System.out.println("You win!");
-		System.exit(0);
+		trees();
 	}
+}
+
+public static void trees() throws InterruptedException {
+	System.out.println("Trees!");
+	Thread.sleep(5000);
+	System.out.println("Putting some values into a tree");
 }
 }
