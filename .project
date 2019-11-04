@@ -20,5 +20,30 @@
 			<type>1</type>
 			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/JSON.java</location>
 		</link>
+		<link>
+			<name>src/Student.java</name>
+			<type>1</type>
+			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/Student.java</location>
+		</link>
+		<link>
+			<name>src/StudentController.java</name>
+			<type>1</type>
+			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/StudentController.java</location>
+		</link>
+		<link>
+			<name>src/StudentView.java</name>
+			<type>1</type>
+			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/StudentView.java</location>
+		</link>
+		<link>
+			<name>src/mvc.java</name>
+			<type>1</type>
+			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/mvc.java</location>
+		</link>
+		<link>
+			<name>src/trees.java</name>
+			<type>1</type>
+			<location>C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/src/trees.java</location>
+		</link>
 	</linkedResources>
 </projectDescription>

@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 public class trees {
 
-	public static void trees() {
+	public static trees() {
 		
 
 	TreeMap<String, Double> treeMap = new TreeMap<>();

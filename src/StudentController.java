@@ -17,7 +17,19 @@ public class StudentController {
    public String getStudentRollNo(){
       return model.getRollNo();
    }
+   public void setStudentLastName(String lastname){
+	      model.setLastName(lastname);
+   }
+   public String getStudentLastName(){
+	      return model.getLastName();
+   }
+   public void setStudentAddress(String address){
+	      model.setAddress(address);
+   }
+		   public String getStudentAddress(){
+		      return model.getAddress();
+		   }
    public void updateView(){
-      view.printStudentDetails(model.getName(), model.getRollNo());
+      view.printStudentDetails(model.getName(), model.getLastName(), model.getAddress(), model.getRollNo());
    }
 }

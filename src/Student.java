@@ -1,6 +1,8 @@
 public class Student {
-   private String rollNo;
-   private String name;
+   public String rollNo;
+   public String name;
+   public String lastname;
+   public String address;
    
    public String getRollNo() {
       return rollNo;
@@ -16,5 +18,20 @@ public class Student {
    
    public void setName(String name) {
       this.name = name;
+   }
+   
+   public String getLastName() {
+	   return lastname;
+   }
+   
+   public void setLastName(String lastname) {
+	   this.lastname = lastname;
+   }
+   
+   public String getAddress() {
+	   return address;
+   }
+   public void setAddress(String address) {
+	   this.address = address;
    }
 }
