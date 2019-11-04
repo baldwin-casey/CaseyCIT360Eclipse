@@ -391,29 +391,19 @@ public static void gameresult() throws InterruptedException {
 	//Just in case both players go over 21
 	if (dealerresult > 21 && playerhandresult > 21) {
 		System.out.println("It's a tie!");
-		trees();
 	}
 	//If the dealer gets more than 21!
 	else if (dealerresult > 21) {
 		System.out.println("You win!");
-		trees();
 	}
 		
 	//The losing results
 	else if (dealerresult >= playerhandresult || playerhandresult > 21) {
 	System.out.println("You lose!");
-	trees();
 	}
 	
 	else {
 		System.out.println("You win!");
-		trees();
 	}
-}
-
-public static void trees() throws InterruptedException {
-	System.out.println("Trees!");
-	Thread.sleep(5000);
-	System.out.println("Putting some values into a tree");
 }
 }
