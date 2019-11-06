@@ -13,24 +13,52 @@ public class mvc {
       controller.updateView();
    }
    private static Student retriveStudentFromDatabase() throws JSONException, FileNotFoundException{
+	   	System.out.println("------------------------------------");
+	System.out.println("Enter the student information ");
+	System.out.println("------------------------------------");
 	   String filename = "StudentJSON.json";
+	   System.out.println("First Name");
       Student student = new Student();
-      student.setName("Casey");
-      student.setLastName("Baldwin");
-      student.setRollNo("10");
-      student.setAddress("456 Main St");
+      student.setName(in.nextLine());
+	  System.out.println("Last Name");
+      student.setLastName(in.nextLine());
+	  System.out.println("Student Number");
+      student.setRollNo(in.nextLine());
+	  System.out.println("Student Address");
+      student.setAddress(in.nextLine());
+	  	System.out.println("------------------------------------");
+		System.out.println("You entered this info, is that correct? Y/N");
+		System.out.println("Student: " + student.getName() + " " + student.getLastName());
+		System.out.println("Student Number: " + student.getRollNo());
+		System.out.println("Student Address: " + student.getAddress());
+		System.out.println("------------------------------------");
+		try {
+          String choice = in.nextLine();
+          switch(choice){
+              case "Y": 
+			  //Returns to program
+          break;
+              case "N":
+              //Returns back to the start  
+            	  retriveStudentFromDatabase();
+              break;
+        default:
+    System.out.println("Enter a vaild selection and try again");
+			}
+		}
+		
+		catch (Exception e) {
+     System.out.println("ERROR " + e);
+}
+
       //Exporting to JSON
-	   JSONObject studentjson = new JSONObject();
-	   studentjson.put("First Name", student.getName());
-	   studentjson.put("Last Name", student.getLastName());
-	   studentjson.put("Address", student.getAddress());
-	   studentjson.put("Roll Number", student.getRollNo());
 	   PrintWriter pw = new PrintWriter(filename);
 	   pw.write(studentjson.toString());
 	   pw.flush(); 
        pw.close(); 
 	   System.out.printf("JSON has been saved to: " + filename);
 	   return student;
+	   
    }
 
 }
