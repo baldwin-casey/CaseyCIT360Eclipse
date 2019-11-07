@@ -1,0 +1,29 @@
+import org.json.JSONObject;
+
+public class mvc {
+   public static void mvc() {
+      //fetch student record based on his roll no from the database
+      Student model  = retriveStudentFromDatabase();
+      //Create a view : to write student details on console
+      StudentView view = new StudentView();
+      StudentController controller = new StudentController(model, view);
+      controller.updateView();
+      controller.setStudentName("John");
+      controller.setStudentLastName("Smith");
+      controller.setStudentAddress("123 Apple Way");
+      controller.updateView();
+   }
+   private static Student retriveStudentFromDatabase(){
+      Student student = new Student();
+      student.setName("Robert");
+      student.setLastName("Jones");
+      student.setRollNo("10");
+      student.setAddress("456 Main St");
+      return student;
+      //Exporting to JSON
+	   JSONObject studentjson = new JSONObject();
+	   studentjson.put("First Name", student.getName());
+   }
+   
+
+}
