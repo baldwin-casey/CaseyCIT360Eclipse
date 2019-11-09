@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
    public static void main(String[] args) throws Exception {
-        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JSON\n 5. Trees\n 6. MVC"); // Display the string.
+        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JUNIT\n 5. Trees\n 6. MVC\n 7. Hibernate"); // Display the string.
          Scanner in = new Scanner(System.in);
           int a = in.nextInt();
           switch(a){
@@ -25,15 +25,22 @@ public class Main {
                   catch (Exception e) {
                       
                   }
+                  break;
               case 3:
-            	  threads.multithreads();
+            	  threads.threads();
+            	  break;
               case 4:
-            	  JSON.JSON();
+            	  junit.junit();
+            	  break;
               case 5:
-            	  //trees.trees();
+            	  trees.trees();
+            	  break;
               case 6:
             	  mvc.mvc();
-            	  System.exit(0);
+            	  break;
+              case 7:
+            	  hibernate.hibernate();
+            	  break;
             	  default:
     System.out.println("Enter a vaild selection and try again");
 }

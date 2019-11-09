@@ -1,30 +1,24 @@
 
-public abstract class threads implements Runnable{
-	
-public static class thread {
-		
-		public void run() {
-			int time = 0;
-			System.out.println("The class has " + time);
-			try {
-				while (time < 10) {
-					System.out.println(time + "seconds.");
-					Thread.sleep(1000);
-					time++;
-				}
-				System.out.println("All done");
-		}
-			catch(Exception e) {
-				
-			}
-		}
-	}
-	
-public static void multithreads() throws InterruptedException {
-System.out.println("Threads!");
-new thread();
-Thread.sleep(1000);
-new thread();
-System.exit(0);
+class threads
+{
+   public static void threads()
+   {
+      MyThread mt = new MyThread ();
+      mt.start ();
+      for (int i = 0; i < 50; i++)
+           System.out.println ("i = " + i + ", i * i = " + i * i);
+   }
 }
+class MyThread extends Thread
+{
+   public void run ()
+   {
+      for (int count = 1, row = 1; row < 20; row++, count++)
+      {
+           for (int i = 0; i < count; i++)
+                System.out.print ('*');
+           System.out.print ('\n');
+           System.exit(0);
+      }
+   }
 }
