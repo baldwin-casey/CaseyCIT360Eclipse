@@ -30,7 +30,8 @@ public class Main {
             	  threads.threads();
             	  break;
               case 4:
-            	  junit.junit();
+            	  junittest test = new junittest();
+            	  test.test();
             	  break;
               case 5:
             	  trees.trees();
