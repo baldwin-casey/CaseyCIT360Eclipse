@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 public class trees {
 
-	public static trees() {
+	public static void trees() {
 		
 
 	TreeMap<String, Double> treeMap = new TreeMap<>();
@@ -18,6 +18,6 @@ public class trees {
      treeMap.put("Ancient Mariner", 45.36);
 
      System.out.print(treeMap.values());
-	
+     System.exit(0);
 	}
 }

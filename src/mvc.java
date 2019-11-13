@@ -2,8 +2,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.FileNotFoundException; 
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class mvc {
+	public static Scanner in = new Scanner(System.in);
    public static void mvc() throws FileNotFoundException, JSONException {
       //fetch student record based on his roll no from the database
       Student model  = retriveStudentFromDatabase();
@@ -20,7 +22,7 @@ public class mvc {
 	   System.out.println("First Name");
       Student student = new Student();
       student.setName(in.nextLine());
-	  System.out.println("Last Name");
+	  System.out.println("Last Name\n");
       student.setLastName(in.nextLine());
 	  System.out.println("Student Number");
       student.setRollNo(in.nextLine());
@@ -53,10 +55,15 @@ public class mvc {
 
       //Exporting to JSON
 	   PrintWriter pw = new PrintWriter(filename);
+	   JSONObject studentjson = new JSONObject();
+	   studentjson.put("Full Name", student.getName() + " " + student.getLastName());
+	   studentjson.put("Student Number", student.getRollNo());
+	   studentjson.put("Student Address", student.getAddress());
 	   pw.write(studentjson.toString());
 	   pw.flush(); 
        pw.close(); 
 	   System.out.printf("JSON has been saved to: " + filename);
+	   System.out.printf("\n--------------------------------------\n");
 	   return student;
 	   
    }

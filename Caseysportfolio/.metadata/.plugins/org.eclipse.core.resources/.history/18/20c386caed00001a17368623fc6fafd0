@@ -1,0 +1,42 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class servlet extends HttpServlet {
+
+	   private String mymsg;
+
+	   public void init() throws ServletException {
+	      mymsg = "Hello World!";
+	   }
+
+	   public void doGet(HttpServletRequest request, 
+	      HttpServletResponse response)
+	      throws ServletException, IOException 
+	   {
+
+	      // Setting up the content type of webpage
+	      response.setContentType("text/html");
+
+	      // Writing message to the web page
+	      PrintWriter out = response.getWriter();
+	      out.println("<h1>" + mymsg + "</h1>");
+	      out.println("<button type='submit' name='button' value='button'>Press me to get a neat message!</button>");
+	      String button= request.getParameter("button");
+	      if (button.equals(button)) {
+	    	  displaymessage(request, response);
+	      }
+	   }
+
+	   public void displaymessage(HttpServletRequest request, 
+			      HttpServletResponse response) throws IOException {
+		   response.setContentType("text/html");
+		   PrintWriter out = response.getWriter();
+		      out.println("<h1>Test</h1>");
+	   }
+	   
+	   public void destroy() {
+
+	   }
+	}
+

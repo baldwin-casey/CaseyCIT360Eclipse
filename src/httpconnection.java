@@ -40,7 +40,7 @@ public class httpconnection {
     }
 */
     //EDIT ME TO CHANGE THE WEBPAGE!
-    String url = "https://www.google.com/teapot";
+    String url = "http://www.arrl.org/what-is-ham-radio";
      String filename = "page.html";
     //try is just in case there is a problem
     try {
