@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resource"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Casey/Documents/GitHub/CaseyCIT360Eclipse/java-json.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Casey/Desktop/hibernate/hibernate-release-5.4.7.Final/lib/required/antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Casey/Desktop/hibernate/hibernate-release-5.4.7.Final/lib/required/byte-buddy-1.10.2.jar"/>
