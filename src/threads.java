@@ -1,24 +1,13 @@
 
-class threads
-{
-   public static void threads()
-   {
-      MyThread mt = new MyThread ();
-      mt.start ();
-      for (int i = 0; i < 50; i++)
-           System.out.println ("i = " + i + ", i * i = " + i * i);
-   }
+public class threads extends Thread {
+	public static void thread() {
+		for(int x = 0; x < 3; x++) {
+			//run is single threaded, while start is multithreaded
+	thread thread = new thread();
+	thread.start();
+
+	thread thread2 = new thread();
+	thread2.start();
 }
-class MyThread extends Thread
-{
-   public void run ()
-   {
-      for (int count = 1, row = 1; row < 20; row++, count++)
-      {
-           for (int i = 0; i < count; i++)
-                System.out.print ('*');
-           System.out.print ('\n');
-           System.exit(0);
-      }
-   }
+}
 }

@@ -1,7 +1,3 @@
-/* This program is a part of a simple hibernate example used for CIT-360
-   It is written by Troy Tuckett.  BYUI.EDU
- */
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import java.util.*;

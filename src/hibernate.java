@@ -17,8 +17,6 @@ public class hibernate {
         for (hibernateemployee i : c) {
             System.out.println(i);
         }
-
-        System.out.println(t.gethibernateemployee(1));
         break;
         
              case 2:

@@ -12,6 +12,7 @@ public class junittest {
 		int result = junit.calculation(5, 10);
 		int result2 = junit.calculation(6, 10);
 		assertEquals(15, result);
+		//assertEquals(20, result2);
 		assertNotNull(result);
 		//This one fails
 		//assertNull(result);
@@ -30,6 +31,6 @@ public class junittest {
 		
 		List arraylistdeck = collections.deck;
 		List arraylistdeck2 = collections.deck;
-		assertArrayEquals(arraylistdeck.toArray(), arraylistdeck.toArray() );
+		assertArrayEquals(arraylistdeck.toArray(), arraylistdeck2.toArray() );
 	}
 }

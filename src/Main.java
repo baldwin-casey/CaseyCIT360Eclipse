@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
    public static void main(String[] args) throws Exception {
-        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JUNIT\n 5. Trees\n 6. MVC\n 7. Hibernate\n 8. Queue\n 9. Set\n 10. Application Controller"); // Display the string.
+        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JUNIT\n 5. Trees\n 6. MVC\n 7. Hibernate\n 8. Queue\n 9. Set\n 10. Application Controller\n 11. Executors"); // Display the string.
          Scanner in = new Scanner(System.in);
           int a = in.nextInt();
           switch(a){
@@ -27,7 +27,7 @@ public class Main {
                   }
                   break;
               case 3:
-            	  threads.threads();
+            	  threads.thread();
             	  break;
               case 4:
             	  junittest test = new junittest();
@@ -50,7 +50,11 @@ public class Main {
             	  break;
               case 10:
             	  applicationcontroller controller = new applicationcontroller();
-            	  default:
+            	  break;
+              case 11: 
+            	  execute.execute();
+            	break;  
+              default:
     System.out.println("Enter a vaild selection and try again");
 }
           in.close();
