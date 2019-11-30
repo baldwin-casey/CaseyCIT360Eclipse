@@ -49,7 +49,7 @@ public class Main {
             	  set.set();
             	  break;
               case 10:
-            	  applicationcontroller controller = new applicationcontroller();
+            	  appcontroller.appcontroller();
             	  break;
               case 11: 
             	  execute.execute();
