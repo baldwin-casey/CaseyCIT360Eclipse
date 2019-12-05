@@ -1,7 +1,6 @@
 package caseyfinal;
 
 import java.util.HashMap;
-//https://github.com/Garaix-Davy/CIT360/blob/master/SimpleApplicationController/src/garaix/cit360/ATM.java
 public class controller {
 
 	public static HashMap<Integer, appinterface> map = new HashMap <Integer, appinterface>();
