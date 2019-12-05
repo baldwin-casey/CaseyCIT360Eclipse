@@ -22,7 +22,7 @@ public static void execute() throws InterruptedException {
 					//Notice that we are creating a new thread here
 					thread thread = new thread();
 					thread.start();
-					//Notice that we are referencing a different way to use the same thread. In theory, we could use as many threads as we want
+					//Notice that we are referencing a different way to use the same thread. In theory, we could use as many threads as we want, this also creates new threads
 					threads.thread();
 					threads.thread();
 					threads.thread();
