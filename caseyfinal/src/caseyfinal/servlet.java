@@ -1,15 +1,15 @@
 package caseyfinal;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+ 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class servlet extends HttpServlet {
 
-
-	   /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 private String mymsg;
 
@@ -27,7 +27,7 @@ private String mymsg;
 
 	      // Writing message to the web page
 	      PrintWriter out = response.getWriter();
-	      out.println("<h1>" + mymsg + "</h1>");
+	      out.println("<HTML><h1>" + mymsg + "</h1></HTML>");
 
 	   }
 	   

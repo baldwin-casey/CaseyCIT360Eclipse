@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Main {
    public static void main(String[] args) throws Exception {
-        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JUNIT\n 5. Trees\n 6. MVC\n 7. Hibernate\n 8. Queue\n 9. Set\n 10. Application Controller\n 11. Executors\n 12. Map"); // Display the string.
+        System.out.println("Enter a number to access a program\n 1. Collections\n 2. HTTPConnection\n 3. Threads\n 4. JUNIT\n 5. Trees\n 6. MVC\n 7. Hibernate\n 8. Queue\n 9. Set\n 10. Application Controller\n 11. Executors\n 12. Map\n 13. Servlet"); // Display the string.
          Scanner in = new Scanner(System.in);
           int a = in.nextInt();
           switch(a){
@@ -58,6 +58,8 @@ public class Main {
             	break;  
               case 12: 
             	  map.map();
+            	break;  
+
             	break;  
               default:
     System.out.println("Enter a vaild selection and try again");
